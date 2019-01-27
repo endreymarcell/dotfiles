@@ -1,0 +1,38 @@
+// Place your settings in this file to overwrite the default settings
+{
+    "editor.minimap.showSlider": "always",
+    "editor.minimap.renderCharacters": false,
+    "editor.scrollBeyondLastLine": false,
+    "files.autoSave": "afterDelay",
+    "editor.smoothScrolling": true,
+    "editor.wrappingIndent": "indent",
+    "editor.fontLigatures": false,
+    "editor.dragAndDrop": false,
+    "workbench.commandPalette.preserveInput": true,
+    "workbench.editor.closeOnFileDelete": false,
+    "editor.minimap.enabled": false,
+    "editor.snippetSuggestions": "top",
+    "editor.formatOnPaste": true,
+    "workbench.startupEditor": "newUntitledFile",
+    "editor.renderWhitespace": "none",
+    "editor.fontSize": 13,
+    "editor.wordWrap": "on",
+    "window.zoomLevel": 0,
+    "search.location": "panel",
+    "files.exclude": {
+        "**/*.pyc": true
+    },
+    "gitlens.codeLens.enabled": false,
+    "gitlens.hovers.enabled": false,
+    "gitlens.mode.statusBar.enabled": false,
+    "workbench.colorTheme": "Ayu Light Bordered",
+    "workbench.editor.highlightModifiedTabs": true,
+    "editor.occurrencesHighlight": false,
+    "workbench.iconTheme": "ayu",
+    "workbench.colorCustomizations": {
+        "editor.selectionHighlightBackground": "#f7f8f9"
+    },
+    "breadcrumbs.enabled": true,
+    "explorer.confirmDelete": false,
+    "workbench.editor.enablePreviewFromQuickOpen": false
+}

@@ -1,0 +1,50 @@
+[user]
+	name = Marcell Endrey
+	email = marcell.endrey@prezi.com
+[core]
+	editor = subl -w
+	excludesfile = /Users/Marca/.gitignore_global
+	pager = diff-so-fancy | less --tabs=4 -RFX
+[color]
+	ui = always
+[color "diff"]
+	meta = yellow bold
+	commit = green bold
+	frag = magenta bold
+	old = red bold
+	new = green bold
+	whitespace = red reverse
+[color "diff-highlight"]
+	XoldNormal = red bold
+	XoldHighlight = "red bold 52"
+	XnewNormal = "green bold"
+	XnewHighlight = "green bold 22"
+[color "status"]
+	added = yellow
+	changed = green
+	untracked = cyan
+[interactive]
+	diffFilter = "diff-so-fancy | less --tabs=4 -RFX"
+[push]
+	default = current
+[alias]
+    st = status
+    co = checkout
+    ci = commit
+    cb = rev-parse --abbrev-ref HEAD
+    dc = diff --cached
+    append = commit --amend --no-edit
+    patch = !git --no-pager diff --no-color
+    cp = cherry-pick
+[diff]
+	submodule = log
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Users/Marca/Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[commit]
+	template = /Users/Marca/.stCommitMsg
+[merge]
+	renamelimit = 2000
