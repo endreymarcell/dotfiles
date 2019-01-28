@@ -14,6 +14,7 @@ brew_install() {
     brew install \
         autojump \
         bash \
+        colordiff \
         diff-so-fancy \
         fzf \
         peco
@@ -106,4 +107,5 @@ if [[ "${BASH_SOURCE[0]}" = "${0}" ]]; then
     brew_cask_install
     update_shells
     restore
+    open .etc/ayu_light.terminal
 fi
