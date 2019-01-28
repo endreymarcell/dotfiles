@@ -33,7 +33,7 @@ brew_cask_install() {
 }
 
 get_apps() {
-    find . -type d -depth 1 -not -name '.git' | sed 's|./||' | xargs
+    find . -type d -depth 1 -not -path './.*' | sed 's|./||' | xargs
 }
 
 backup() {
@@ -46,6 +46,22 @@ backup() {
         for file in $files; do
             echo "cp ~/${file} ./${app}/${file}"
             cp "$HOME/${file}" "${file}"
+        done
+        IFS="$OIFS"
+        cd ..
+    done
+}
+
+fuckup() {
+    apps="$(get_apps)"
+    for app in $apps; do
+        cd "$app"
+        OIFS="$IFS"
+        IFS=$'\n'
+        files="$(find . -type f | sed 's|./||')"
+        for file in $files; do
+            echo "[[ -L ~/${file} ]] && rm ~/${file}"
+            [[ -L "${HOME}/${file}" ]] && rm "${HOME}/${file}"
         done
         IFS="$OIFS"
         cd ..
