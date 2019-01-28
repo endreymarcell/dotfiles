@@ -32,8 +32,12 @@ brew_cask_install() {
         visual-studio-code
 }
 
+get_apps() {
+    find . -type d -depth 1 -not -name '.git' | sed 's|./||' | xargs
+}
+
 backup() {
-    apps="$(find . -type d -depth 1 | sed 's|./||' | xargs)"
+    apps="$(get_apps)"
     for app in $apps; do
         cd "$app"
         OIFS="$IFS"
@@ -49,7 +53,7 @@ backup() {
 }
 
 restore() {
-    apps="$(find . -type d -depth 1 | sed 's|./||' | xargs)"
+    apps="$(get_apps)"
     for app in $apps; do
         cd "$app"
         OIFS="$IFS"
@@ -57,7 +61,7 @@ restore() {
         files="$(find . -type f | sed 's|./||')"
         for file in $files; do
             echo "cp ./${app}/${file} ~/${file}"
-            cp "${file}" "$HOME/${file}"
+            # cp "${file}" "$HOME/${file}"
         done
         IFS="$OIFS"
         cd ..
@@ -65,7 +69,7 @@ restore() {
 }
 
 check_files_are_the_same() {
-    apps="$(find . -type d -depth 1 | sed 's|./||' | xargs)"
+    apps="$(get_apps)"
     for app in $apps; do
         cd "$app"
         OIFS="$IFS"
@@ -80,12 +84,10 @@ check_files_are_the_same() {
     done
 }
 
-# install_homebrew
-# brew_install
-# brew_cask_install
-# update_shells
-# copy_to_repo
-# check_files_are_the_same
-# copy_to_repo
-# setup_from_repo
-# setup_backups_from_repo
+if [[ "${BASH_SOURCE[0]}" = "${0}" ]]; then
+    install_homebrew
+    brew_install
+    brew_cask_install
+    update_shells
+    restore
+fi
