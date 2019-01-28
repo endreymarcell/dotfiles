@@ -32,25 +32,7 @@ brew_cask_install() {
         visual-studio-code
 }
 
-setup_from_repo() {
-    apps="$(find . -type d -depth 1 | sed 's|./||' | xargs)"
-    for app in $apps; do
-        cd "$app"
-        OIFS="$IFS"
-        IFS=$'\n'
-        files="$(find . -type f | sed 's|./||')"
-        for file in $files; do
-            echo "mv ~/${file} ~/${file}.bak"
-            mv ~/${file} ~/${file}.bak
-            echo "ln -s ${app}/${file} $HOME/${file}"
-            ln -s "${PWD}/${file}" "$HOME/${file}"
-        done
-        IFS="$OIFS"
-        cd ..
-    done
-}
-
-copy_to_repo() {
+backup() {
     apps="$(find . -type d -depth 1 | sed 's|./||' | xargs)"
     for app in $apps; do
         cd "$app"
@@ -60,6 +42,22 @@ copy_to_repo() {
         for file in $files; do
             echo "cp ~/${file} ./${app}/${file}"
             cp "$HOME/${file}" "${file}"
+        done
+        IFS="$OIFS"
+        cd ..
+    done
+}
+
+restore() {
+    apps="$(find . -type d -depth 1 | sed 's|./||' | xargs)"
+    for app in $apps; do
+        cd "$app"
+        OIFS="$IFS"
+        IFS=$'\n'
+        files="$(find . -type f | sed 's|./||')"
+        for file in $files; do
+            echo "cp ./${app}/${file} ~/${file}"
+            cp "${file}" "$HOME/${file}"
         done
         IFS="$OIFS"
         cd ..
@@ -76,22 +74,6 @@ check_files_are_the_same() {
         for file in $files; do
             echo "diff $HOME/${file} ${app}/${file}"
             diff "$HOME/${file}" "${file}"
-        done
-        IFS="$OIFS"
-        cd ..
-    done
-}
-
-setup_backups_from_repo() {
-    apps="$(find . -type d -depth 1 | sed 's|./||' | xargs)"
-    for app in $apps; do
-        cd "$app"
-        OIFS="$IFS"
-        IFS=$'\n'
-        files="$(find . -type f | sed 's|./||')"
-        for file in $files; do
-            echo "cp ${app}/${file} $HOME/${file}.bak"
-            cat "${file}" > "$HOME/${file}.bak"
         done
         IFS="$OIFS"
         cd ..
