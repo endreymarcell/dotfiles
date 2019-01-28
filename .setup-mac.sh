@@ -61,7 +61,7 @@ restore() {
         files="$(find . -type f | sed 's|./||')"
         for file in $files; do
             echo "cp ./${app}/${file} ~/${file}"
-            # cp "${file}" "$HOME/${file}"
+            cp "${file}" "$HOME/${file}"
         done
         IFS="$OIFS"
         cd ..
