@@ -1,0 +1,16 @@
+$if Bash
+  Space:magic-space
+  TAB:menu-complete
+#  "\M-^[[1;2C":shell-forward-word
+#  "\M-^[[1;2D":shell-backward-word
+  "\C-xq": "\eb\"\ef\""
+  "\C-k": kill-whole-line
+
+  set menu-complete-display-prefix on
+  set show-all-if-ambiguous on
+  set show-all-if-unmodified on
+  set colored-completion-prefix on
+  set colored-stats on
+  set completion-ignore-case on
+$endif
+
