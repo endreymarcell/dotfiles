@@ -17,6 +17,7 @@ brew_install() {
         colordiff \
         diff-so-fancy \
         fzf \
+        git \
         peco
 }
 
