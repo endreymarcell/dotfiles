@@ -16,7 +16,6 @@ shopt -s histappend
 shopt -s cdspell
 
 export BAT_THEME=GitHub
-export VIRTUAL_ENV_DISABLE_PROMPT=1
 export EDITOR=code
 
 #######################################
@@ -105,7 +104,6 @@ source_if_exists /usr/local/etc/bash_completion.d/git-prompt.sh
 git_status_for_prompt() {
     test -d .git && __git_ps1
 }
-
 GIT_PS1_SHOWDIRTYSTATE=true
 GIT_PS1_SHOWCOLORHINTS=true
 GIT_PS1_SHOWUNTRACKEDFILES=true
@@ -129,6 +127,7 @@ get_venv_name() {
         echo "$(basename $VIRTUAL_ENV)+ "
     fi
 }
+export VIRTUAL_ENV_DISABLE_PROMPT=1
 
 function jiraf_card() {
     [ -f ~/.jiraf/status ] && cat ~/.jiraf/status
