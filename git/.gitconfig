@@ -36,6 +36,7 @@
     append = commit --amend --no-edit
     patch = !git --no-pager diff --no-color
     cp = cherry-pick
+	resetlast = reset @~1
 [diff]
 	submodule = log
 [difftool "sourcetree"]

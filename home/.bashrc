@@ -9,7 +9,6 @@ export HISTFILE=~/.bash_eternal_history
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 export LANGUAGE=en_US.UTF-8
-export PROMPT_COMMAND='history -a; history -r'
 export IGNOREEOF=1
 
 shopt -s histappend
@@ -66,6 +65,7 @@ alias br='edit -w ~/.bashrc && . ~/.bashrc'
 alias dps='docker ps --format "table {{.ID}}\t{{.RunningFor}}\t{{.Status}}\t{{.Names}}"'
 alias thisdir='basename $(pwd)'
 alias preview="fzf --preview 'bat --color \"always\" {}'"
+alias hist='history -a; history -r'
 
 #######################################
 ###    SOURCE FILES AND EXPORTS     ###

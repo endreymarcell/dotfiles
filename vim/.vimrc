@@ -1,3 +1,26 @@
+call plug#begin('~/.vim/plugged')
+Plug 'scrooloose/nerdtree'
+call plug#end()
+
+" open nerdtree with C-n
+map <C-n> :NERDTreeToggle<CR>
+let g:NERDTreeNodeDelimiter = "\u00a0"
+
+" hard mode
+noremap <Up> <Nop>
+noremap <Down> <Nop>
+noremap <Left> <Nop>
+noremap <Right> <Nop>
+inoremap <Up> <Nop>
+inoremap <Down> <Nop>
+inoremap <Left> <Nop>
+inoremap <Right> <Nop>
+
+" search preferences
+set hlsearch
+set incsearch
+nohls
+
 " enable syntax highlighting
 syntax enable
 
@@ -25,3 +48,18 @@ set showmatch
 " enable all Python syntax highlighting features
 let python_highlight_all = 1
 
+" from celo
+" set number relativenumber
+" set ruler
+" set cursorline
+" set nocompatible
+" set background=dark
+" set autoindent
+" set incsearch
+" set hlsearch
+" set backspace=indent,eol,start
+" set ignorecase " searches are case insensitive...
+" set smartcase  " ... unless they contain at least one capital letter
+" set expandtab
+" set smartindent
+" set smarttab

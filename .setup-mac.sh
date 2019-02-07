@@ -54,22 +54,6 @@ backup() {
     done
 }
 
-fuckup() {
-    apps="$(get_apps)"
-    for app in $apps; do
-        cd "$app"
-        OIFS="$IFS"
-        IFS=$'\n'
-        files="$(find . -type f | sed 's|./||')"
-        for file in $files; do
-            echo "[[ -L ~/${file} ]] && rm ~/${file}"
-            [[ -L "${HOME}/${file}" ]] && rm "${HOME}/${file}"
-        done
-        IFS="$OIFS"
-        cd ..
-    done
-}
-
 restore() {
     apps="$(get_apps)"
     for app in $apps; do

@@ -12,7 +12,6 @@
     "workbench.editor.closeOnFileDelete": false,
     "editor.minimap.enabled": false,
     "editor.snippetSuggestions": "top",
-    "editor.formatOnPaste": true,
     "workbench.startupEditor": "newUntitledFile",
     "editor.renderWhitespace": "none",
     "editor.fontSize": 13,
