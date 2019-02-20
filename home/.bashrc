@@ -9,13 +9,23 @@ export HISTFILE=~/.bash_eternal_history
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 export LANGUAGE=en_US.UTF-8
+export PROMPT_COMMAND="__prompt_command; ${PROMPT_COMMAND}"
 export IGNOREEOF=1
+
+__prompt_command() {
+    local EXIT="$?"
+    if [ $EXIT != 0 ]; then
+        status_indicator='✘ '
+    else
+        status_indicator=''
+    fi
+}
 
 shopt -s histappend
 shopt -s cdspell
 
 export BAT_THEME=GitHub
-export EDITOR=code
+export EDITOR=subl
 
 #######################################
 ###            ALIASES              ###
@@ -33,6 +43,7 @@ alias pp=pbpaste
 alias n='sudo /usr/local/bin/n'
 alias ji=jiraf
 alias lg=/usr/local/bin/lazygit
+alias rg=ranger
 
 ### GIT ###
 alias gg='git status'
@@ -102,17 +113,11 @@ source_if_exists /usr/local/etc/bash_completion.d/git-prompt.sh
 #######################################
 
 git_status_for_prompt() {
-    test -d .git && __git_ps1
+    git status >/dev/null 2>&1 && __git_ps1
 }
 GIT_PS1_SHOWDIRTYSTATE=true
 GIT_PS1_SHOWCOLORHINTS=true
 GIT_PS1_SHOWUNTRACKEDFILES=true
-
-function nonzero_return() {
-    # TODO: fix
-    RETVAL=$?
-    [ $RETVAL -ne 0 ] && echo "✘ " || echo ""
-}
 
 hr() {
     printf '%*s\n' "${COLUMNS:-$(tput cols)}" '' | tr ' ' ─
@@ -135,7 +140,7 @@ function jiraf_card() {
 
 [[ "$(id -u)" -eq 0 ]] && PS1_SYMBOL=⌘ || PS1_SYMBOL=❯
 
-export PS1='\[\033[1;37\]$(hr)\[\033[0m\]\n\[\033[1;31m\]$(nonzero_return)\[\033[0m\]\[\033[1;90m\]$(get_venv_name)\[\033[0m\]\[\033[1;4;34m\]\w\[\033[0m\]\[\033[1;32m\]$(git_status_for_prompt) \[\033[0m\]$(jiraf_card)\n$PS1_SYMBOL '
+export PS1='\[\033[1;37\]$(hr)\[\033[0m\]\n\[\033[1;31m\]${status_indicator}\[\033[0m\]\[\033[1;90m\]$(get_venv_name)\[\033[0m\]\[\033[1;4;34m\]\w\[\033[0m\]\[\033[1;32m\]$(git_status_for_prompt) \[\033[0m\]$(jiraf_card)\n$PS1_SYMBOL '
 
 #######################################
 ###            FUNCTIONS            ###
@@ -210,6 +215,7 @@ mkcd() {
 }
 
 history_search() {
+    history -a
     local action
     action="$(cat ~/.bash_eternal_history | fzf --no-sort --tac)"
     [ "$action" = "" ] && return
