@@ -44,6 +44,7 @@ alias n='sudo /usr/local/bin/n'
 alias ji=jiraf
 alias lg=/usr/local/bin/lazygit
 alias rg=ranger
+alias genact='docker run -it --rm svenstaro/genact'
 
 ### GIT ###
 alias gg='git status'
