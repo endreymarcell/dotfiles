@@ -31,7 +31,8 @@ brew_cask_install() {
         sizeup \
         spotify \
         sublime-text \
-        visual-studio-code
+        visual-studio-code \
+        vlc
 }
 
 get_apps() {
