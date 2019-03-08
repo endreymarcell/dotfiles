@@ -1,2 +1,5 @@
 .idea/
 .vscode/
+
+# simply will put itself back into bash_profile -- ignore it
+gome/.bash_profile
