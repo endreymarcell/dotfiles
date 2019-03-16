@@ -1,0 +1,67 @@
+[
+	{
+		"installDate": 1533359103479,
+		"enabled": true,
+		"updateUrl": null,
+		"md5Url": null,
+		"url": null,
+		"originalMd5": null,
+		"name": "index.hu",
+		"sections": [
+			{
+				"code": ".index2.container,\n.divany-doboz,\n.totalcar-doboz,\n.portfolio.container,\n.napihu.container,\n.femina.container,\n.velvet.container,\n.otthonterkep2.container,\n#index_shopline,\n.porthu-doboz,\n.porthu-doboz-new,\n#also_bannerek\n{\n    display: none;\n}",
+				"urls": [],
+				"urlPrefixes": [
+					"https://index.hu/"
+				],
+				"domains": [],
+				"regexps": []
+			}
+		],
+		"id": 1
+	},
+	{
+		"installDate": 1535286754881,
+		"enabled": true,
+		"updateUrl": null,
+		"md5Url": null,
+		"url": null,
+		"originalMd5": null,
+		"name": "no video sidebar on facebook.com",
+		"sections": [
+			{
+				"code": ".uiStreamStory {\n    display: none;\n}",
+				"urls": [],
+				"urlPrefixes": [],
+				"domains": [
+					"facebook.com"
+				],
+				"regexps": []
+			}
+		],
+		"id": 2
+	},
+	{
+		"enabled": true,
+		"updateUrl": "https://userstyles.org/styles/chrome/124860.json",
+		"md5Url": "https://update.userstyles.org/124860.md5",
+		"url": "http://userstyles.org/styles/124860",
+		"originalMd5": "0960e918c045b62b05d0f29d31f89366",
+		"installDate": 1542196893647,
+		"sections": [
+			{
+				"code": ".blob-code-inner,\r\n  .markdown-body pre > code,\r\n  .markdown-body .highlight > pre {\r\n    white-space: pre-wrap !important;\r\n    word-break: break-all !important;\r\n    overflow-wrap: break-word !important;\r\n    display: block !important;\r\n  }\r\n  td.blob-code-inner {\r\n    display: table-cell !important;\r\n  }",
+				"urls": [],
+				"urlPrefixes": [],
+				"domains": [
+					"github.com",
+					"gist.github.com"
+				],
+				"regexps": []
+			}
+		],
+		"name": "GitHub Code Wrap",
+		"originalDigest": "6d6a3e78d26aa827c1ac1548222de24304c49009",
+		"id": 4
+	}
+]
