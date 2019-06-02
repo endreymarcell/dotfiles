@@ -2,7 +2,7 @@
 	name = Marcell Endrey
 	email = marcell.endrey@prezi.com
 [core]
-	editor = subl -w
+	editor = code -w
 	excludesfile = /Users/Marca/.gitignore_global
 	pager = diff-so-fancy | less --tabs=4 -RFX
 [color]
@@ -23,8 +23,8 @@
 	added = yellow
 	changed = green
 	untracked = cyan
-[interactive]
-	diffFilter = "diff-so-fancy | less --tabs=4 -RFX"
+# [interactive]
+	# diffFilter = "diff-so-fancy | less --tabs=4 -RFX"
 [push]
 	default = current
 [alias]
@@ -45,7 +45,5 @@
 [mergetool "sourcetree"]
 	cmd = /Users/Marca/Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
-[commit]
-	template = /Users/Marca/.stCommitMsg
 [merge]
 	renamelimit = 2000

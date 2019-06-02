@@ -25,7 +25,7 @@ shopt -s histappend
 shopt -s cdspell
 
 export BAT_THEME=GitHub
-export EDITOR=subl
+export EDITOR=code
 
 #######################################
 ###            ALIASES              ###
@@ -78,6 +78,7 @@ alias dps='docker ps --format "table {{.ID}}\t{{.RunningFor}}\t{{.Status}}\t{{.N
 alias thisdir='basename $(pwd)'
 alias preview="fzf --preview 'bat --color \"always\" {}'"
 alias hist='history -a; history -r'
+alias vv='vim ~/.vimrc'
 
 #######################################
 ###    SOURCE FILES AND EXPORTS     ###

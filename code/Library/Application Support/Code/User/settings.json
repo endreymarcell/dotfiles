@@ -24,7 +24,6 @@
     "gitlens.codeLens.enabled": false,
     "gitlens.hovers.enabled": false,
     "gitlens.mode.statusBar.enabled": false,
-    "workbench.colorTheme": "Ayu Light Bordered",
     "workbench.editor.highlightModifiedTabs": true,
     "editor.occurrencesHighlight": false,
     "workbench.iconTheme": "ayu",
@@ -33,5 +32,8 @@
     },
     "breadcrumbs.enabled": true,
     "explorer.confirmDelete": false,
-    "workbench.editor.enablePreviewFromQuickOpen": false
+    "workbench.editor.enablePreviewFromQuickOpen": false,
+    "workbench.colorTheme": "Ayu Mirage Bordered",
+    "explorer.confirmDragAndDrop": false,
+    "editor.fontFamily": "Operator Mono, Menlo, Monaco, 'Courier New', monospace"
 }
