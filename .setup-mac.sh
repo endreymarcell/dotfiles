@@ -18,6 +18,7 @@ brew_install() {
         diff-so-fancy \
         fzf \
         git \
+        jq \
         peco
 }
 
