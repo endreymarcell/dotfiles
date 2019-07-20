@@ -13,21 +13,34 @@ Plug 'terryma/vim-expand-region'
 Plug 'matze/vim-move'
 Plug 'yuttie/comfortable-motion.vim'
 Plug 'kshenoy/vim-signature'
-Plug 'leafgarland/typescript-vim'
+" Plug 'leafgarland/typescript-vim'
+Plug 'HerringtonDarkholme/yats'
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
+" Plug 'ayu-theme/ayu-vim'
+Plug 'Yggdroot/indentLine'
+Plug 'tomtom/tcomment_vim'
+Plug 'cormacrelf/vim-colors-github'
 call plug#end()
 
-" open nerdtree with C-p
+" set termguicolors     " enable true colors support
+" let ayucolor="light"  " for light version of theme
+" colorscheme ayu
+
+colorscheme github
+let g:lightline = { 'colorscheme': 'github' }
+
+" open nerdtree with C-t
 map <C-t> :NERDTreeToggle<CR>
+" fix UI quirk
 let g:NERDTreeNodeDelimiter = "\u00a0"
 " close vim if the only window left open is a NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+" show hidden files
+let NERDTreeShowHidden=1
 
 " I need this for lightline to show up
 set laststatus=2
-" lightline shows the mode, so vim doesn't have to
-set noshowmode
 
 " hard mode
 noremap <Up> <Nop>
@@ -73,24 +86,16 @@ set showmatch
 let python_highlight_all = 1
 
 " from celo
-" set number relativenumber
+set number relativenumber
 set ruler
 set nocompatible
 " set background=dark
 " set backspace=indent,eol,start
-" set ignorecase " searches are case insensitive...
-" set smartcase  " ... unless they contain at least one capital letter
+set ignorecase " searches are case insensitive...
+set smartcase  " ... unless they contain at least one capital letter
 " set expandtab
 " set smartindent
 " set smarttab
-
-" move line or selection up and down
-nnoremap <A-j> :m .+1<CR>==
-nnoremap <A-k> :m .-2<CR>==
-inoremap <A-j> <Esc>:m .+1<CR>==gi
-inoremap <A-k> <Esc>:m .-2<CR>==gi
-vnoremap <A-j> :m '>+1<CR>gv=gv
-vnoremap <A-k> :m '<-2<CR>gv=gv
 
 " decrease updatetime so the vim-gitgutter is quick
 set updatetime=100
@@ -105,3 +110,10 @@ set hidden
 " always show signs column to avoid jumping back and forth
 set signcolumn=yes
 
+" lightline shows the mode, so vim doesn't have to
+" note: something else in my vimrc messes with this so I have to have it down
+" here, near the bottom
+set noshowmode
+
+" list options on tab-completion, like bash's menu-complete
+set wildmenu
