@@ -18,22 +18,16 @@ brew_install() {
         diff-so-fancy \
         fzf \
         git \
-        jq \
-        peco
+        jq
 }
 
 brew_cask_install() {
     brew cask install \
         alfred \
-        caffeine \
         docker \
-        dropbox \
         flycut \
         sizeup \
-        spotify \
-        sublime-text \
-        visual-studio-code \
-        vlc
+        spotify
 }
 
 get_apps() {
