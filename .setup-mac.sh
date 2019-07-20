@@ -18,7 +18,8 @@ brew_install() {
         diff-so-fancy \
         fzf \
         git \
-        jq
+        jq \
+        node
 }
 
 brew_cask_install() {
