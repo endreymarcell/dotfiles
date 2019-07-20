@@ -25,11 +25,13 @@ shopt -s histappend
 shopt -s cdspell
 
 export BAT_THEME=GitHub
-export EDITOR=code
+export EDITOR=vim
 
 #######################################
 ###            ALIASES              ###
 #######################################
+
+baba='npm run sandbox'
 
 ### EXECUTABLES ###
 alias chrome='open -a "Google Chrome"'
@@ -73,12 +75,13 @@ alias notif='(if [[ $? = 0 ]]; then afplay /System/Library/Sounds/Ping.aiff; els
 alias pg='ping google.com'
 alias wifi='networksetup -setairportpower en0'   # suffix with 'on' or 'off'
 alias rewifi='echo "Turning wifi off..." && wifi off && sleep 3 && echo "Turning wifi on..." && wifi on && sleep 3 && pg'
-alias br='edit -w ~/.bashrc && . ~/.bashrc'
+alias br='vim ~/.bashrc && . ~/.bashrc'
 alias dps='docker ps --format "table {{.ID}}\t{{.RunningFor}}\t{{.Status}}\t{{.Names}}"'
 alias thisdir='basename $(pwd)'
 alias preview="fzf --preview 'bat --color \"always\" {}'"
 alias hist='history -a; history -r'
 alias vv='vim ~/.vimrc'
+alias nr='npm run'
 
 #######################################
 ###    SOURCE FILES AND EXPORTS     ###
@@ -189,6 +192,14 @@ function gup() {
 
 ### OTHER HELPERS ###
 
+nb() {
+    "./node_modules/.bin/$@"
+}
+
+wnpm() {
+    echo You lost the wnpm script when you overwrote your bashrc, remember?
+}
+
 grab() {
     peco | tr ' ' '\n' | peco | xargs | yy
 }
@@ -237,3 +248,4 @@ export NVM_DIR="/Users/Marca/.nvm"
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
+. ~/.pde/scripts/pde-bash-completion.sh

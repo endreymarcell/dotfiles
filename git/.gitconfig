@@ -2,7 +2,7 @@
 	name = Marcell Endrey
 	email = marcell.endrey@prezi.com
 [core]
-	editor = code -w
+	editor = vim
 	excludesfile = /Users/Marca/.gitignore_global
 	pager = diff-so-fancy | less --tabs=4 -RFX
 [color]
