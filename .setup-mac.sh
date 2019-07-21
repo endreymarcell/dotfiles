@@ -20,7 +20,8 @@ brew_install() {
         fzf \
         git \
         jq \
-        node
+        node \
+        tree
 }
 
 brew_cask_install() {
@@ -31,6 +32,13 @@ brew_cask_install() {
         flycut \
         sizeup \
         spotify
+}
+
+install_n() {
+    rm -rf /tmp/install-n && mkdir /tmp/install-n && cd /tmp/install-n
+    git clone https://github.com/tj/n .
+    PREFIX=~/n make install
+    cd - && rm -rf /tmp/install-n
 }
 
 get_apps() {
@@ -89,6 +97,7 @@ if [[ "${BASH_SOURCE[0]}" = "${0}" ]]; then
     install_homebrew
     brew_install
     brew_cask_install
+    install_n
     update_shells
     restore
     open .etc/ayu_light.terminal
