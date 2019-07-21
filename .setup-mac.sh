@@ -24,6 +24,7 @@ brew_install() {
 
 brew_cask_install() {
     brew cask install \
+        aerial \
         alfred \
         docker \
         flycut \
