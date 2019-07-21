@@ -6,6 +6,7 @@ install_homebrew() {
 
 update_shells() {
     if ! grep '/usr/local/bin/bash' /etc/shells; then
+        echo Requesting sudo access to add /usr/local/bin/bash to /etc/shells
         sudo bash -c 'echo /usr/local/bin/bash >> /etc/shells'
     fi
 }
