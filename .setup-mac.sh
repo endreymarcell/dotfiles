@@ -4,11 +4,24 @@ install_homebrew() {
     ! which brew >/dev/null && /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 }
 
-update_shells() {
+update_bash() {
     if ! grep '/usr/local/bin/bash' /etc/shells; then
         echo Requesting sudo access to add /usr/local/bin/bash to /etc/shells
         sudo bash -c 'echo /usr/local/bin/bash >> /etc/shells'
     fi
+}
+
+set_fish_shell() {
+    if ! grep '/usr/local/bin/fish' /etc/shells; then
+        echo Requesting sudo access to add /usr/local/bin/fish to /etc/shells
+        sudo bash -c 'echo /usr/local/bin/fish >> /etc/shells'
+    fi
+    chsh -s /usr/local/bin/fish
+}
+
+update_shells() {
+    update_bash
+    set_fish_shell
 }
 
 brew_install() {
@@ -17,6 +30,7 @@ brew_install() {
         bash \
         colordiff \
         diff-so-fancy \
+        fish \
         fzf \
         git \
         jq \
