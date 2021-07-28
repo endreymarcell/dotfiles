@@ -41,6 +41,10 @@ install_n() {
     cd - && rm -rf /tmp/install-n
 }
 
+setup_npm_autocomplete() {
+    npm completion > /usr/local/etc/bash_completion.d/npm
+}
+
 get_apps() {
     find . -type d -depth 1 -not -path './.*' | sed 's|./||' | xargs
 }
@@ -98,6 +102,7 @@ if [[ "${BASH_SOURCE[0]}" = "${0}" ]]; then
     brew_install
     brew_cask_install
     install_n
+    setup_npm_autocomplete
     update_shells
     restore
     open .etc/ayu_light.terminal
