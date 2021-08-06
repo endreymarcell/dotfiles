@@ -33,8 +33,11 @@ brew_install() {
         fish \
         fzf \
         git \
+        htop \
         jq \
         node \
+        pyenv \
+        pyenv-virtualenv \
         tree
 }
 

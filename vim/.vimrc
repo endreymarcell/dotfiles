@@ -4,31 +4,21 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.vim/plugged')
-Plug 'scrooloose/nerdtree'
-Plug 'airblade/vim-gitgutter'
-Plug 'itchyny/lightline.vim'
-Plug 'terryma/vim-multiple-cursors'
-Plug 'tpope/vim-surround'
-Plug 'terryma/vim-expand-region'
-Plug 'matze/vim-move'
-Plug 'yuttie/comfortable-motion.vim'
-Plug 'kshenoy/vim-signature'
-" Plug 'leafgarland/typescript-vim'
-Plug 'HerringtonDarkholme/yats'
-Plug '/usr/local/opt/fzf'
-Plug 'junegunn/fzf.vim'
-" Plug 'ayu-theme/ayu-vim'
-Plug 'Yggdroot/indentLine'
-Plug 'tomtom/tcomment_vim'
-Plug 'cormacrelf/vim-colors-github'
+    Plug 'scrooloose/nerdtree'
+    Plug 'airblade/vim-gitgutter'
+    Plug 'itchyny/lightline.vim'
+    Plug 'tpope/vim-surround'
+    Plug 'kshenoy/vim-signature'
+    Plug 'ayu-theme/ayu-vim'
+    Plug 'tomtom/tcomment_vim'
+    Plug 'junegunn/vim-peekaboo'
+    Plug 'Yilin-Yang/vim-markbar'
+    Plug 'ap/vim-buftabline'
 call plug#end()
 
-" set termguicolors     " enable true colors support
-" let ayucolor="light"  " for light version of theme
-" colorscheme ayu
-
-colorscheme github
-let g:lightline = { 'colorscheme': 'github' }
+set termguicolors     " enable true colors support
+let ayucolor="light"  " for light version of theme
+colorscheme ayu
 
 " open nerdtree with C-t
 map <C-t> :NERDTreeToggle<CR>
@@ -87,7 +77,7 @@ let python_highlight_all = 1
 
 " from celo
 set number relativenumber
-set ruler
+" set ruler
 set nocompatible
 " set background=dark
 " set backspace=indent,eol,start
@@ -117,3 +107,27 @@ set noshowmode
 
 " list options on tab-completion, like bash's menu-complete
 set wildmenu
+
+"Mode Settings
+
+let &t_SI.="\e[5 q" "SI = INSERT mode
+let &t_SR.="\e[4 q" "SR = REPLACE mode
+let &t_EI.="\e[1 q" "EI = NORMAL mode (ELSE)
+
+"Cursor settings:
+
+"  1 -> blinking block
+"  2 -> solid block
+"  3 -> blinking underscore
+"  4 -> solid underscore
+"  5 -> blinking vertical bar
+"  6 -> solid vertical bar
+
+" delete without yanking with leader-d
+nnoremap <leader>d "_d
+xnoremap <leader>d "_d
+xnoremap <leader>p "_dP
+
+" remap leader to space
+map <Space> <Leader>
+

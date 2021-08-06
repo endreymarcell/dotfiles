@@ -26,6 +26,7 @@ shopt -s cdspell
 
 export BAT_THEME=GitHub
 export EDITOR=vim
+export N_PREFIX=~/n
 
 #######################################
 ###            ALIASES              ###
@@ -42,7 +43,7 @@ alias diff=colordiff
 alias cci=circleci
 alias yy=pbcopy
 alias pp=pbpaste
-alias n='sudo /usr/local/bin/n'
+# alias n='sudo /usr/local/bin/n'
 alias ji=jiraf
 alias lg=/usr/local/bin/lazygit
 alias rg=ranger
@@ -97,6 +98,9 @@ export PATH="$PATH:/Library/Frameworks/Python.framework/Versions/3.5/bin"
 export PATH="$PATH:/usr/local/bin/gradle-1.8/bin"
 export PATH="$PATH:/Users/Marca/.local/bin:/Users/Marca/bin"
 export PATH="/Applications/Postgres.app/Contents/Versions/latest/bin/:$PATH"
+# node versions from n
+export PATH="/Users/marca/n/bin:$PATH"
+eval "$(pyenv init -)"
 
 ### OTHER EXPORTS ###
 
@@ -248,4 +252,4 @@ export NVM_DIR="/Users/Marca/.nvm"
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
-. ~/.pde/scripts/pde-bash-completion.sh
+source_if_exists ~/.pde/scripts/pde-bash-completion.sh
