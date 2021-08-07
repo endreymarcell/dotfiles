@@ -1,4 +1,11 @@
 source ~/.vimrc
+
+" Enable emulated vim plugins
 set surround
 set multiple-cursors
+set commentary
+set ReplaceWithRegister
+set textobj-entire
 
+" Use the IDE's smart join
+set ideajoin
