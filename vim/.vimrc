@@ -1,3 +1,5 @@
+" ######## Plugins
+
 if empty(glob('~/.vim/autoload/plug.vim'))
     silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
     autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
@@ -14,11 +16,25 @@ call plug#begin('~/.vim/plugged')
     Plug 'junegunn/vim-peekaboo'
     Plug 'Yilin-Yang/vim-markbar'
     Plug 'ap/vim-buftabline'
+    Plug 'vim-scripts/ReplaceWithRegister'
+    Plug 'kana/vim-textobj-user'
+    Plug 'kana/vim-textobj-entire'
+    Plug 'machakann/vim-highlightedyank'
 call plug#end()
+
+
+" ######## Color scheme
 
 set termguicolors     " enable true colors support
 let ayucolor="light"  " for light version of theme
 colorscheme ayu
+
+
+
+" ######## TODO other stuff
+
+" Trying to hide the intro message but no joy
+set shortmess+=I
 
 " open nerdtree with C-t
 map <C-t> :NERDTreeToggle<CR>
