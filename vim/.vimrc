@@ -28,6 +28,8 @@ set laststatus=2
 set termguicolors     " enable true colors support
 let ayucolor="light"  " for light version of theme
 colorscheme ayu
+set guifont=Operator\ Mono\ Book:h14
+
 
 " Preferences
 
