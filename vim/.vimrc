@@ -1,5 +1,4 @@
 " ######## Plugins
-
 if empty(glob('~/.vim/autoload/plug.vim'))
     silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
     autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
@@ -22,19 +21,31 @@ call plug#begin('~/.vim/plugged')
     Plug 'machakann/vim-highlightedyank'
 call plug#end()
 
+" I need this for lightline to show up
+set laststatus=2
 
-" ######## Color scheme
-
+" ######## Apparence
 set termguicolors     " enable true colors support
 let ayucolor="light"  " for light version of theme
 colorscheme ayu
 
+" Preferences
+
+
+" ######## Hotkeys
+map <Space> <Leader>
+nnoremap H ^
+nnoremap L $
+
+" delete without yanking with leader-d
+nnoremap <leader>d "_d
+xnoremap <leader>d "_d
+xnoremap <leader>p "_dP
 
 
 " ######## TODO other stuff
 
-" Trying to hide the intro message but no joy
-set shortmess+=I
+set complete+=kspell
 
 " open nerdtree with C-t
 map <C-t> :NERDTreeToggle<CR>
@@ -44,9 +55,6 @@ let g:NERDTreeNodeDelimiter = "\u00a0"
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 " show hidden files
 let NERDTreeShowHidden=1
-
-" I need this for lightline to show up
-set laststatus=2
 
 " hard mode
 noremap <Up> <Nop>
@@ -138,12 +146,4 @@ let &t_EI.="\e[1 q" "EI = NORMAL mode (ELSE)
 "  4 -> solid underscore
 "  5 -> blinking vertical bar
 "  6 -> solid vertical bar
-
-" delete without yanking with leader-d
-nnoremap <leader>d "_d
-xnoremap <leader>d "_d
-xnoremap <leader>p "_dP
-
-" remap leader to space
-map <Space> <Leader>
 
