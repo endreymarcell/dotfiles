@@ -20,6 +20,9 @@ call plug#begin('~/.vim/plugged')
     Plug 'kana/vim-textobj-user'
     Plug 'kana/vim-textobj-entire'
     Plug 'machakann/vim-highlightedyank'
+    Plug 'adelarsq/vim-matchit'
+    Plug 'ntpeters/vim-better-whitespace'
+    Plug 'ctrlpvim/ctrlp.vim'
 call plug#end()
 
 " decrease updatetime so the vim-gitgutter is quick
@@ -59,6 +62,8 @@ set ssop-=options    " do not store global and local values in a session
 set wildmenu
 set wildmode=longest:list,full
 
+nnoremap Y y$
+
 " ################################################################
 " MAPPINGS
 
@@ -70,6 +75,9 @@ nnoremap L $
 nnoremap <leader>d "_d
 xnoremap <leader>d "_d
 xnoremap <leader>p "_dP
+
+nnoremap <leader>[ :bp<CR>
+nnoremap <leader>] :bn<CR>
 
 " ################################################################
 " PREFERENCES
