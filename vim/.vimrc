@@ -79,6 +79,8 @@ xnoremap <leader>p "_dP
 nnoremap <leader>[ :bp<CR>
 nnoremap <leader>] :bn<CR>
 
+nnoremap <CR> :
+
 " ################################################################
 " PREFERENCES
 set complete+=kspell
