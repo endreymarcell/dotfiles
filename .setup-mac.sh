@@ -29,6 +29,7 @@ brew_install() {
         autojump \
         bash \
         colordiff \
+        coreutils \
         diff-so-fancy \
         fish \
         fzf \
