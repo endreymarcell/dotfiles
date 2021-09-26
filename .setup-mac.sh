@@ -37,6 +37,7 @@ brew_install() {
         htop \
         jq \
         node \
+        switchaudio-osx \
         tree
 }
 
