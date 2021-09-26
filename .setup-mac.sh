@@ -42,7 +42,7 @@ brew_install() {
 }
 
 brew_cask_install() {
-    brew cask install \
+    brew install --cask \
         aerial \
         alfred \
         docker \
