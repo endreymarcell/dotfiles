@@ -45,8 +45,10 @@ brew_cask_install() {
     brew install --cask \
         aerial \
         alfred \
+        bettertouchtools \
         docker \
         flycut \
+        marta \
         sizeup \
         spotify
 }
