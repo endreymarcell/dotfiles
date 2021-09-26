@@ -64,7 +64,7 @@ get_apps() {
     find . -type d -depth 1 -not -path './.*' | sed 's|./||' | xargs
 }
 
-backup() {
+symlink_config_files_from_repo() {
     apps="$(get_apps)"
     for app in $apps; do
         cd "$app"
@@ -72,40 +72,12 @@ backup() {
         IFS=$'\n'
         files="$(find . -type f | sed 's|./||')"
         for file in $files; do
-            echo "cp ~/${file} ./${app}/${file}"
-            cp "$HOME/${file}" "${file}"
-        done
-        IFS="$OIFS"
-        cd ..
-    done
-}
-
-restore() {
-    apps="$(get_apps)"
-    for app in $apps; do
-        cd "$app"
-        OIFS="$IFS"
-        IFS=$'\n'
-        files="$(find . -type f | sed 's|./||')"
-        for file in $files; do
-            echo "cp ./${app}/${file} ~/${file}"
-            cp "${file}" "$HOME/${file}"
-        done
-        IFS="$OIFS"
-        cd ..
-    done
-}
-
-check_files_are_the_same() {
-    apps="$(get_apps)"
-    for app in $apps; do
-        cd "$app"
-        OIFS="$IFS"
-        IFS=$'\n'
-        files="$(find . -type f | sed 's|./||')"
-        for file in $files; do
-            echo "diff $HOME/${file} ${app}/${file}"
-            diff "$HOME/${file}" "${file}"
+            if [[ -f "$HOME/${file}" ]]; then
+                echo "Creating backup file for ~/${file}"
+                mv "$HOME/${file}" "$HOME/${file}.$(date +%F).bak"
+            fi
+            echo "Symlinking ~/${file}"
+            ln -s "$(realpath "${file}")" "$(realpath "$HOME/${file}")"
         done
         IFS="$OIFS"
         cd ..
@@ -118,6 +90,6 @@ if [[ "${BASH_SOURCE[0]}" = "${0}" ]]; then
     brew_cask_install
     install_n
     update_shells
-    restore
+    symlink_config_files_from_repo
     open .etc/ayu_light.terminal
 fi
