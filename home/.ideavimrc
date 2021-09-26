@@ -4,8 +4,40 @@ source ~/.vimrc
 set surround
 set multiple-cursors
 set commentary
+set paraghraph-motion
+
+" action: gr
 set ReplaceWithRegister
+
+" text objects: ae and ie (with/without leading/trailing empty lines)
 set textobj-entire
+
+" action: cx, entire line: cxx, visual mode: X, clear pending: cxc
+set exchange
+
+" text object: a
+set argtextobj
 
 " Use the IDE's smart join
 set ideajoin
+
+" Use IDEA's jump list
+nmap <C-o> <Action>(Back)
+nmap <C-i> <Action>(Forward)
+
+" Let's also have the same shortcut for jumping bitween git changes
+nmap [c <Action>(VcsShowPrevChangeMarker)
+nmap ]c <Action>(VcsShowNextChangeMarker)
+
+" ...as well as for rolling back hunks
+nmap ghu <Action>(Vcs.RollbackChangedLines)
+
+" vim-signature
+nmap mm <Action>(ToggleBookmark)
+nmap [m <Action>(GotoPreviousBookmark)
+nmap ]m <Action>(GotoNextBookmark)
+
+nmap <leader>y <Action>(GotoNextError)
+
+nmap <leader>[ <Action>(PreviousTab)
+nmap <leader>] <Action>(NextTab)
