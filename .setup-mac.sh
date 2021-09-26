@@ -37,8 +37,6 @@ brew_install() {
         htop \
         jq \
         node \
-        pyenv \
-        pyenv-virtualenv \
         tree
 }
 
