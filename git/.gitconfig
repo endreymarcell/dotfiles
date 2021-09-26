@@ -29,14 +29,21 @@
 	default = current
 [alias]
     st = status
-    co = checkout
+#   co = checkout
+    re = restore
+    si = switch
     ci = commit
     cb = rev-parse --abbrev-ref HEAD
     dc = diff --cached
     append = commit --amend --no-edit
     patch = !git --no-pager diff --no-color
     cp = cherry-pick
-	resetlast = reset @~1
+    resetlast = reset @~1
+    recent = branch --sort=-committerdate
+    rebi = rebase -i
+    reci = rebase --continue
+    wip = commit -am "WIP" --no-verify
+    last = show @
 [diff]
 	submodule = log
 [difftool "sourcetree"]
@@ -47,3 +54,9 @@
 	trustExitCode = true
 [merge]
 	renamelimit = 2000
+[pull]
+	rebase = true
+[stash]
+	showPatch = true
+[init]
+	defaultBranch = master

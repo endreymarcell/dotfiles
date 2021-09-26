@@ -34,6 +34,11 @@ export N_PREFIX=~/n
 
 baba='npm run sandbox'
 
+alias yargs='printf "%s\n"'
+function pick() {
+    echo $(yargs $($($2) | fzf --tac) | fzf --tac)
+}
+
 ### EXECUTABLES ###
 alias chrome='open -a "Google Chrome"'
 alias edit='$EDITOR'
@@ -50,13 +55,14 @@ alias rg=ranger
 alias genact='docker run -it --rm svenstaro/genact'
 
 ### GIT ###
-alias gg='git status'
-alias ggs='git status -s'
+alias gg='git status -s'
+alias ggg='git status'
 alias gpl='git pull'
 alias gps='git push'
 alias gcm='git checkout master'
 alias gcb='git checkout -b'
 alias gmm='git merge master'
+alias grh='git recent | head'
 
 ### PYTHON & DJANGO ###
 alias vv='virtualenv virtualenv'
@@ -73,7 +79,7 @@ alias p8='pycodestyle --ignore E501 --exclude virtualenv/ .'
 alias 'll=ls -laG'
 alias ..='cd ..'
 alias notif='(if [[ $? = 0 ]]; then afplay /System/Library/Sounds/Ping.aiff; else afplay ~/personal/misc/notif_error.mp3; fi &) >/dev/null'
-alias pg='ping google.com'
+alias pg='ping netflix.com'
 alias wifi='networksetup -setairportpower en0'   # suffix with 'on' or 'off'
 alias rewifi='echo "Turning wifi off..." && wifi off && sleep 3 && echo "Turning wifi on..." && wifi on && sleep 3 && pg'
 alias br='vim ~/.bashrc && . ~/.bashrc'
@@ -81,8 +87,9 @@ alias dps='docker ps --format "table {{.ID}}\t{{.RunningFor}}\t{{.Status}}\t{{.N
 alias thisdir='basename $(pwd)'
 alias preview="fzf --preview 'bat --color \"always\" {}'"
 alias hist='history -a; history -r'
-alias vv='vim ~/.vimrc'
+alias viv='vim ~/.vimrc'
 alias nr='npm run'
+alias scripts='jq .scripts package.json'
 
 #######################################
 ###    SOURCE FILES AND EXPORTS     ###
@@ -101,12 +108,12 @@ export PATH="/Applications/Postgres.app/Contents/Versions/latest/bin/:$PATH"
 # node versions from n
 export PATH="/Users/marca/n/bin:$PATH"
 eval "$(pyenv init -)"
+export PATH="$PATH:/Users/marca/go/bin"
 
 ### OTHER EXPORTS ###
 
 export PKG_CONFIG_PATH=/opt/X11/lib/pkgconfig/
 export HAXE_STD_PATH="/usr/local/lib/haxe-3.1.3"
-export FLEX_HOME=/Users/Marca/.prezi/flex_sdk_4.6
 
 ### SOURCE FILES ###
 
@@ -156,6 +163,10 @@ export PS1='\[\033[1;37\]$(hr)\[\033[0m\]\n\[\033[1;31m\]${status_indicator}\[\0
 #######################################
 
 ### GIT SHORTCUTS ###
+
+function recent() {
+    git co $(git --no-pager branch --sort=-committerdate | grep -v '*' | grep -v '|' | sed 's/\[m//g' | sed 's/\[32m//g' | fzf | xargs | sed 's/[^-a-zA-Z0-9]//g')
+}
 
 function gl() {
     git log --oneline "-n${1-10}"
@@ -252,4 +263,7 @@ export NVM_DIR="/Users/Marca/.nvm"
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
-source_if_exists ~/.pde/scripts/pde-bash-completion.sh
+[[ -f ~/.pde/scripts/pde-bash-completion.sh ]] && . ~/.pde/scripts/pde-bash-completion.sh
+alias bach="/Users/marca/.prezi/frontend-packages/node_modules/.bin/bach"
+alias ci="/Users/marca/.prezi/frontend-packages/node_modules/.bin/ci"
+[ -f "/Users/marca/.ghcup/env" ] && source "/Users/marca/.ghcup/env" # ghcup-env
