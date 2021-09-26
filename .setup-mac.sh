@@ -46,6 +46,7 @@ brew_cask_install() {
         alfred \
         bettertouchtools \
         docker \
+        dropbox \
         flycut \
         marta \
         sizeup \
