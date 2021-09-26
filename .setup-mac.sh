@@ -75,9 +75,12 @@ symlink_config_files_from_repo() {
             if [[ -f "$HOME/${file}" ]]; then
                 echo "Creating backup file for ~/${file}"
                 mv "$HOME/${file}" "$HOME/${file}.$(date +%F).bak"
+            elif [[ -L "$HOME/${file}" ]]; then
+                echo "Removing existing symlink for ~/${file}"
+                rm "$HOME/${file}"
             fi
             echo "Symlinking ~/${file}"
-            ln -s "$(realpath "${file}")" "$(realpath "$HOME/${file}")"
+            ln -s "$(realpath "${file}")" "$HOME/${file}"
         done
         IFS="$OIFS"
         cd ..
