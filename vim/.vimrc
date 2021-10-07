@@ -89,7 +89,7 @@ xnoremap <leader>p "_dP
 nnoremap <leader>[ :bp<CR>
 nnoremap <leader>] :bn<CR>
 " actually, let's have even more fun
-nnoremap <enter> :bn<CR>
+nnoremap <CR> :bn<CR>
 nnoremap <bs> :bp<CR>
 
 " jump to the last used buffer
@@ -115,8 +115,6 @@ nnoremap ]m ]`
 
 nnoremap <leader>ve :e $MYVIMRC<CR>
 nnoremap <leader>vs :so $MYVIMRC<CR>
-
-nnoremap <CR> :
 
 " ################################################################
 " PREFERENCES
