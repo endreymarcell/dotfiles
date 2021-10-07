@@ -45,13 +45,14 @@ brew_cask_install() {
     brew install --cask \
         aerial \
         alfred \
-        bettertouchtools \
+        bettertouchtool \
         docker \
         dropbox \
         flycut \
         marta \
         sizeup \
-        spotify
+        spotify \
+        visual-studio-code
 }
 
 install_n() {
