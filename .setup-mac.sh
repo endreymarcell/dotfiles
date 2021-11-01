@@ -63,6 +63,10 @@ install_n() {
     cd - && rm -rf /tmp/install-n
 }
 
+make_finder_closeable() {
+    defaults write com.apple.finder QuitMenuItem -bool YES
+}
+
 get_apps() {
     find . -type d -depth 1 -not -path './.*' | sed 's|./||' | xargs
 }
@@ -97,5 +101,6 @@ if [[ "${BASH_SOURCE[0]}" = "${0}" ]]; then
     install_n
     update_shells
     symlink_config_files_from_repo
-    open .etc/ayu_light.terminal
+    make_finder_closeable
+    open .etc/palenight-terminal.terminal
 fi
