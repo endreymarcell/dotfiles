@@ -49,6 +49,7 @@ brew_cask_install() {
         docker \
         dropbox \
         flycut \
+        keycastr \
         marta \
         sizeup \
         spotify \
