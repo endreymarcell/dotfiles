@@ -27,6 +27,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'tommcdo/vim-exchange'
     Plug 'dbakker/vim-paragraph-motion'
     Plug 'thaerkh/vim-workspace'
+    Plug 'mhinz/vim-startify'
 call plug#end()
 
 " vim-gitgutter: decrease updatetime so the vim-gitgutter is quick
@@ -41,13 +42,17 @@ set noshowmode
 " vim-workspace
 let g:workspace_session_directory = $HOME . '/.vim/sessions/'
 
+" vim-startify
+let g:startify_custom_header = ''
+
 " ################################################################
 " APPARENCE
 
 " set termguicolors     " enable true colors support - this messes up vim
-colorscheme ayu
-let ayucolor="light"  " for light version of theme
-set guifont=Operator\ Mono\ Book:h16
+colorscheme material
+let g:material_theme_style = 'palenight'
+" let ayucolor="light"  " for light version of theme
+" set guifont=Operator\ Mono\ Book:h16
 
 set cursorline
 set number relativenumber
