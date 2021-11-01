@@ -41,6 +41,7 @@
     resetlast = reset @~1
     recent = branch --sort=-committerdate
     rebi = rebase -i
+    rebix = !git rebase -i $(git log --oneline --no-color -n20 | fzf | awk '{print $1}')~1
     reci = rebase --continue
     wip = commit -am "WIP" --no-verify
     last = show @
