@@ -12,6 +12,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'tpope/vim-surround'
     Plug 'kshenoy/vim-signature'
     Plug 'ayu-theme/ayu-vim'
+    Plug 'kaicataldo/material.vim', { 'branch': 'main' }
     Plug 'tomtom/tcomment_vim'
     Plug 'junegunn/vim-peekaboo'
     Plug 'Yilin-Yang/vim-markbar'
